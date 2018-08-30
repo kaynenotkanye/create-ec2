@@ -1,0 +1,3 @@
+#!/bin/sh
+### Put in your userdata script here
+### touch /home/ubuntu/dummyUserData
