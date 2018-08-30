@@ -1,13 +1,13 @@
 package main
 
 import (
-  "fmt"
+	"fmt"
 	"log"
-  "flag"
-  // Uncomment "strings" only if you wish to concatentate the EC2 name tag
-  //"strings"
-  "io/ioutil"
-  "encoding/base64"
+	"flag"
+	// Uncomment "strings" only if you wish to concatentate the EC2 name tag
+	//"strings"
+	"io/ioutil"
+	"encoding/base64"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
