@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+	"io"
 	"fmt"
 	"log"
 	"flag"
@@ -15,11 +17,18 @@ import (
 
 func main() {
 
+logFile, err := os.OpenFile("create-ec2.log", os.O_CREATE | os.O_APPEND | os.O_RDWR, 0666)
+if err != nil {
+	panic(err)
+}
+mw := io.MultiWriter(os.Stdout, logFile)
+log.SetOutput(mw)
+
 instanceName := flag.String("n", "createdByGO", "Tagged Name of EC2 instance")
 userdataFileName := flag.String("u", "sampleUserData.txt", "Name of UserData file.")
 awsRegion := flag.String("r", "us-west-2", "AWS region to deploy to, defaults to us-west-2")
 awsImageId := flag.String("i", "", "AWS source AMI.")
-awsInstanceType := flag.String("t", "t2.small", "AWS instance type, defaults to t2.small")
+awsInstanceType := flag.String("t", "t2.micro", "AWS instance type, defaults to t2.micro")
 awsKeyName := flag.String("k", "", "AWS keypair name needed for SSH")
 awsSubnetId := flag.String("v", "", "Enter VPC Subnet-ID")
 awsSecurityGroup := flag.String("s", "", "Enter Security Group ID")
