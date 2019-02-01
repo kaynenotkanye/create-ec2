@@ -2,7 +2,7 @@
 This is a Golang app that will launch an EC2 instance from a source AMI
 while also passing along a userdata script upon EC2 launch.
 ### Example usage
-The following command will create an EC2 based off of ami-abcd1234 in the us-west-2 region placed in  subnet-abcd1234 (notice that we only need subnet-id and not VPC ID) assigned to security groupo sg-abcd1234 while passing along the sampleUserData.txt file with the instance type of t3.medium.
+The following command will create an EC2 based off of ami-abcd1234 in the us-west-2 region placed in  subnet-abcd1234 (notice that we only need subnet-id and not VPC ID) assigned to security group sg-abcd1234 while passing along the sampleUserData.txt file with the instance type of t3.medium.
 ```sh
 create-ec2 -r us-west-2 \
 -n NameOfEC2instance \
